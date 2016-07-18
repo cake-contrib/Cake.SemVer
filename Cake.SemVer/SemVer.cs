@@ -31,6 +31,48 @@ namespace Cake.SemVer
         {
             return Semver.SemVersion.Parse (version, strict);
         }
+
+        /// <summary>
+        /// Create a Semantic Version instance
+        /// </summary>
+        /// <returns>The semantic version.</returns>
+        /// <param name="context">The context.</param>
+        /// <param name="major">The major.</param>
+        /// <param name="minor">The minor.</param>
+        /// <param name="patch">The patch.</param>
+        public static Semver.SemVersion CreateSemVer (this ICakeContext context, int major, int minor, int patch)
+        {
+            return new Semver.SemVersion (major, minor, patch);
+        }
+
+        /// <summary>
+        /// Create a Semantic Version instance
+        /// </summary>
+        /// <returns>The semantic version.</returns>
+        /// <param name="context">The context.</param>
+        /// <param name="major">The major.</param>
+        /// <param name="minor">The minor.</param>
+        /// <param name="patch">The patch.</param>
+        /// <param name="prerelease">The prerelease.</param>
+        public static Semver.SemVersion CreateSemVer (this ICakeContext context, int major, int minor, int patch, string prerelease)
+        {
+            return new Semver.SemVersion (major, minor, patch, prerelease);
+        }
+
+        /// <summary>
+        /// Create a Semantic Version instance
+        /// </summary>
+        /// <returns>The semantic version.</returns>
+        /// <param name="context">The context.</param>
+        /// <param name="major">The major.</param>
+        /// <param name="minor">The minor.</param>
+        /// <param name="patch">The patch.</param>
+        /// <param name="prerelease">The prerelease.</param>
+        /// <param name="build">The build.</param>
+        public static Semver.SemVersion CreateSemVer (this ICakeContext context, int major, int minor, int patch, string prerelease, string build)
+        {
+            return new Semver.SemVersion (major, minor, patch, prerelease, build);
+        }
     }
 }
 

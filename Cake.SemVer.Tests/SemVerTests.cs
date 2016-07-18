@@ -30,7 +30,6 @@ namespace Cake.SemVer.Tests
 
             var semver = context.CakeContext.ParseSemVer (v);
 
-
             Assert.AreEqual (1, semver.Major);
             Assert.AreEqual (2, semver.Minor);
             Assert.AreEqual (3, semver.Patch);
@@ -43,7 +42,6 @@ namespace Cake.SemVer.Tests
             const string v = "1.2.3-beta4+5";
 
             var semver = context.CakeContext.ParseSemVer (v);
-
 
             Assert.AreEqual (1, semver.Major);
             Assert.AreEqual (2, semver.Minor);
