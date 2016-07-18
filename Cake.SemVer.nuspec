@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+      <id>Cake.SemVer</id>
+      <version>$version$</version>
+      <authors>Redth</authors>
+      <owners>Redth</owners>
+      <title>Cake.SemVer</title>
+      <description>Cake Build addon to provide Semantice Versioning classes and aliases.</description>
+      <summary>Cake build aliases and classes for Semantic Versioning.</summary>
+      <licenseUrl>https://raw.githubusercontent.com/Redth/Cake.SemVer/master/LICENSE.md</licenseUrl>
+      <projectUrl>https://github.com/Redth/Cake.SemVer</projectUrl>
+      <iconUrl>https://raw.githubusercontent.com/Redth/Cake.SemVer/master/icon.png</iconUrl>
+      <requireLicenseAcceptance>false</requireLicenseAcceptance>
+      <copyright>Copyright (c) Redth 2015-2016</copyright>
+      <releaseNotes>Initial Release</releaseNotes>
+      <tags>Cake Script Build</tags>
+
+      <dependencies>
+         <dependency id="Cake.Core" version="0.14.0" />
+         <dependency id="semver" version="1.1.2" />
+      </dependencies>
+   </metadata>
+
+   <files>
+      <file src="./Cake.SemVer/bin/Release/Cake.SemVer.dll" target="lib/net45" />
+      <file src="./Cake.SemVer/bin/Release/Cake.SemVer.xml" target="lib/net45" />  
+
+      <file src="./packages/semver.1.1.2/lib/net45/Semver.dll" target="lib/net45" />
+   </files>
+</package>
