@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4892D81A-AD1A-442B-B456-B1BF6754C75B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Cake.FileHelpers.Tests</RootNamespace>
-    <AssemblyName>Cake.FileHelpers.Tests</AssemblyName>
+    <RootNamespace>Cake.SemVer.Tests</RootNamespace>
+    <AssemblyName>Cake.SemVer.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
