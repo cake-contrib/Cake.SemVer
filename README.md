@@ -12,7 +12,7 @@ You can easily reference Cake.Xamarin directly in your build script via a cake a
 
 Please visit the Cake Documentation for a list of available aliases:
 
-http://cakebuild.net/dsl/semver
+http://cakebuild.net/dsl/semantic-versioning
 
 
 ## Licensing
