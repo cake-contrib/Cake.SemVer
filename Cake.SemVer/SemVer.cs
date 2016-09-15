@@ -4,7 +4,7 @@ using Cake.Core.Annotations;
 namespace Cake.SemVer
 {
     /// <summary>
-    /// File helper aliases.
+    /// Semantic Versioning aliases.
     /// </summary>
     [CakeAliasCategory("Semantic Versioning")]
     public static class SemVerAliases
