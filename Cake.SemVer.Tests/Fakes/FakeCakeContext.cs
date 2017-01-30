@@ -18,9 +18,9 @@ namespace Cake.Xamarin.Tests.Fakes
                 System.IO.Path.GetFullPath (AppDomain.CurrentDomain.BaseDirectory));
             
             var fileSystem = new FileSystem ();
-            var environment = new CakeEnvironment (new CakePlatform (), new CakeRuntime ());
+            log = new FakeLog();
+            var environment = new CakeEnvironment (new CakePlatform (), new CakeRuntime (), log);
             var globber = new Globber (fileSystem, environment);
-            log = new FakeLog ();
             var args = new FakeCakeArguments ();
             var processRunner = new ProcessRunner (environment, log);
             var registry = new WindowsRegistry ();
