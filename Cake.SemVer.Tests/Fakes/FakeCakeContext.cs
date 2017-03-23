@@ -3,6 +3,7 @@ using Cake.Core.IO;
 using Cake.Core;
 using System.Collections.Generic;
 using Cake.Core.Tooling;
+using Cake.Testing;
 
 namespace Cake.Xamarin.Tests.Fakes
 {
@@ -18,7 +19,7 @@ namespace Cake.Xamarin.Tests.Fakes
                 System.IO.Path.GetFullPath (AppDomain.CurrentDomain.BaseDirectory));
             
             var fileSystem = new FileSystem ();
-            var environment = new CakeEnvironment (new CakePlatform (), new CakeRuntime ());
+			var environment = new FakeEnvironment (PlatformFamily.Windows);
             var globber = new Globber (fileSystem, environment);
             log = new FakeLog ();
             var args = new FakeCakeArguments ();

@@ -17,7 +17,6 @@
       <tags>Cake Script Build</tags>
 
       <dependencies>
-         <dependency id="Cake.Core" version="0.14.0" />
          <dependency id="semver" version="1.1.2" />
       </dependencies>
    </metadata>
