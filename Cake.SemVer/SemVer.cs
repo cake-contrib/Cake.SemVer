@@ -4,7 +4,15 @@ using Cake.Core.Annotations;
 namespace Cake.SemVer
 {
     /// <summary>
-    /// Semantic Versioning aliases.
+    /// <para>Semantic Versioning aliases.</para>
+    /// <para>
+    ///  In order to use aliases from this addin, you will need to also reference semver as an addin.
+    ///  Here is what including Cake.SemVer in your script should look like:
+    /// <code>
+    /// #addin package:?Cake.SemVer
+    /// #addin package:?semver&mp;version=2.0.4
+    /// </code>
+    /// </para>
     /// </summary>
     [CakeAliasCategory("Semantic Versioning")]
     public static class SemVerAliases
