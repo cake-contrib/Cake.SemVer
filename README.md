@@ -5,8 +5,12 @@ A set of aliases for http://cakebuild.net to help with Semantic Versioning.
 You can easily reference Cake.Xamarin directly in your build script via a cake addin:
 
 ```csharp
-#addin "Cake.SemVer"
+#addin nuget:?package=Cake.SemVer
+#addin nuget:?package=semver&version=2.0.4
 ```
+
+NOTE: It's very important at this point in time to specify the `semver` package *and* the version _2.0.4_ for it.
+
 
 ## Aliases
 
