@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using System;
 using Cake.Xamarin.Tests.Fakes;
 using Cake.Core.IO;
@@ -6,48 +6,45 @@ using Cake.SemVer;
 
 namespace Cake.SemVer.Tests
 {
-    [TestFixture]
-    public class SemVerTests
+    public class SemVerTests : IDisposable
     {
         FakeCakeContext context;
 
-        [SetUp]
-        public void Setup ()
+        public SemVerTests ()
         {
             context = new FakeCakeContext ();
         }
 
-        [TearDown]
-        public void Teardown ()
+        public void Dispose ()
         {
             context.DumpLogs ();
         }
 
-        [Test]
+        [Fact]
         public void ParsePrereleaseVersion ()
         {
             const string v = "1.2.3-beta4";
 
             var semver = context.CakeContext.ParseSemVer (v);
 
-            Assert.AreEqual (1, semver.Major);
-            Assert.AreEqual (2, semver.Minor);
-            Assert.AreEqual (3, semver.Patch);
-            Assert.AreEqual ("beta4", semver.Prerelease);
+            Assert.Equal (1, semver.Major);
+            Assert.Equal (2, semver.Minor);
+            Assert.Equal (3, semver.Patch);
+            Assert.Equal ("beta4", semver.Prerelease);
         }
 
-        [Test]
+        [Fact]
         public void ParsePrereleaseAndBuildVersion ()
         {
             const string v = "1.2.3-beta4+5";
 
             var semver = context.CakeContext.ParseSemVer (v);
 
-            Assert.AreEqual (1, semver.Major);
-            Assert.AreEqual (2, semver.Minor);
-            Assert.AreEqual (3, semver.Patch);
-            Assert.AreEqual ("beta4", semver.Prerelease);
-            Assert.AreEqual ("5", semver.Build);
+            Assert.Equal (1, semver.Major);
+            Assert.Equal (2, semver.Minor);
+            Assert.Equal (3, semver.Patch);
+            Assert.Equal ("beta4", semver.Prerelease);
+            Assert.Equal ("5", semver.Build);
         }
     }
 }
