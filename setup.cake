@@ -4,11 +4,12 @@ Environment.SetVariableNames();
 
 BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
-                            sourceDirectoryPath: Context.Environment.WorkingDirectory,
+                            sourceDirectoryPath: "./src",
                             title: "Cake.SemVer",
                             repositoryOwner: "redth",
                             repositoryName: "Cake.SemVer",
                             appVeyorAccountName: "redth",
+                            shouldRunDotNetCorePack: true,
                             shouldRunDupFinder: false,
                             shouldRunInspectCode: false);
 
