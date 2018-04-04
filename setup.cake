@@ -4,7 +4,7 @@ Environment.SetVariableNames();
 
 BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
-                            sourceDirectoryPath: "./",
+                            sourceDirectoryPath: "./src",
                             title: "Cake.SemVer",
                             repositoryOwner: "redth",
                             repositoryName: "Cake.SemVer",

@@ -1,8 +1,6 @@
 ﻿using Xunit;
 using System;
 using Cake.Xamarin.Tests.Fakes;
-using Cake.Core.IO;
-using Cake.SemVer;
 
 namespace Cake.SemVer.Tests
 {
@@ -10,12 +8,12 @@ namespace Cake.SemVer.Tests
     {
         FakeCakeContext context;
 
-        public SemVerTests ()
+        public SemVerTests()
         {
             context = new FakeCakeContext ();
         }
 
-        public void Dispose ()
+        public void Dispose()
         {
             context.DumpLogs ();
         }
