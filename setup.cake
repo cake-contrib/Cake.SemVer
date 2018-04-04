@@ -4,14 +4,17 @@ Environment.SetVariableNames();
 
 BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
-                            sourceDirectoryPath: "./src",
+                            sourceDirectoryPath: "./",
                             title: "Cake.SemVer",
-                            repositoryOwner: "cake-contrib",
+                            repositoryOwner: "redth",
                             repositoryName: "Cake.SemVer",
-                            appVeyorAccountName: "cakecontrib",
+                            appVeyorAccountName: "redth",
                             shouldRunDotNetCorePack: true,
+                            shouldRunInspectCode: false,
                             shouldRunDupFinder: false,
-                            shouldRunInspectCode: false);
+                            shouldRunCodecov: false,
+                            shouldPostToSlack: false,
+                            shouldRunIntegrationTests: false);
 
 BuildParameters.PrintParameters(Context);
 
@@ -20,5 +23,5 @@ ToolSettings.SetToolSettings(context: Context,
                                 BuildParameters.RootDirectoryPath + "/Cake.SemVer.Tests/*.cs" },
                             testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[FakeItEasy]*",
                             testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
-                            testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
+                            testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs;*TestProjects*");
 Build.RunDotNetCore();
