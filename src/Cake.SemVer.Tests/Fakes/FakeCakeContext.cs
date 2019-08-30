@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Cake.Core.Tooling;
 using Cake.Testing;
 
-namespace Cake.Xamarin.Tests.Fakes
+namespace Cake.SemVer.Tests.Fakes
 {
     public class FakeCakeContext
     {
@@ -22,13 +22,14 @@ namespace Cake.Xamarin.Tests.Fakes
             var globber = new Globber (fileSystem, environment);
             log = new FakeLog ();
             var args = new FakeCakeArguments ();
-            var processRunner = new ProcessRunner (environment, log);
-            var registry = new WindowsRegistry ();
-            var toolRepo = new ToolRepository (environment);
             var config = new Core.Configuration.CakeConfigurationProvider (fileSystem, environment).CreateConfiguration (testsDir, new Dictionary<string, string> ());
             var toolResolutionStrategy = new ToolResolutionStrategy (fileSystem, environment, globber, config);
+            var toolRepo = new ToolRepository (environment);
             var toolLocator = new ToolLocator (environment, toolRepo, toolResolutionStrategy);
-            context = new CakeContext (fileSystem, environment, globber, log, args, processRunner, registry, toolLocator);
+            var processRunner = new ProcessRunner (fileSystem, environment, log, toolLocator, config);
+            var registry = new WindowsRegistry ();
+             var dataService = new FakeDataService();
+            context = new CakeContext (fileSystem, environment, globber, log, args, processRunner, registry, toolLocator, dataService, config);
             context.Environment.WorkingDirectory = testsDir;
         }
 

@@ -1,6 +1,6 @@
 ﻿using Xunit;
 using System;
-using Cake.Xamarin.Tests.Fakes;
+using Cake.SemVer.Tests.Fakes;
 
 namespace Cake.SemVer.Tests
 {
