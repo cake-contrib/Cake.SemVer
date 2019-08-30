@@ -10,7 +10,7 @@ namespace Cake.SemVer
     ///  Here is what including Cake.SemVer in your script should look like:
     /// <code>
     /// #addin package:?Cake.SemVer
-    /// #addin package:?semver&mp;version=2.0.4
+    /// #addin package:?semver&amp;version=2.0.4
     /// </code>
     /// </para>
     /// </summary>
