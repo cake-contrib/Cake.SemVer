@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=1.0.0
+#load nuget:?package=Cake.Recipe&version=3.1.1
 
 Environment.SetVariableNames();
 
@@ -11,17 +11,13 @@ BuildParameters.SetParameters(context: Context,
                             appVeyorAccountName: "cakecontrib",
                             shouldRunDotNetCorePack: true,
                             shouldRunInspectCode: false,
-                            shouldRunDupFinder: false,
                             shouldRunCodecov: false,
                             shouldPostToSlack: false,
-                            shouldRunIntegrationTests: false,
-                            shouldRunGitVersion: true);
+                            shouldRunIntegrationTests: false);
 
 BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(context: Context,
-                            dupFinderExcludePattern: new string[] {
-                                BuildParameters.RootDirectoryPath + "/Cake.SemVer.Tests/*.cs" },
                             testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[FakeItEasy]*",
                             testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
                             testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs;*TestProjects*");
