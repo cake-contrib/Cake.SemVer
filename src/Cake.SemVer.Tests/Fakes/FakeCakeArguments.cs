@@ -6,63 +6,34 @@ namespace Cake.SemVer.Tests.Fakes
 {
     internal sealed class FakeCakeArguments : ICakeArguments
     {
-        private readonly Dictionary<string, string> _arguments;
+        private readonly Dictionary<string, List<string>> _arguments;
 
         /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <value>The arguments.</value>
-        public IReadOnlyDictionary<string, string> Arguments
-        {
-            get { return _arguments; }
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CakeArguments"/> class.
+        /// Initializes a new instance of the <see cref="FakeCakeArguments"/> class.
         /// </summary>
         public FakeCakeArguments()
         {
-            _arguments = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            _arguments = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
         }
 
-        /// <summary>
-        /// Initializes the argument list.
-        /// </summary>
-        /// <param name="arguments">The arguments.</param>
-        public void SetArguments(IDictionary<string, string> arguments)
-        {
-            if (arguments == null)
-            {
-                throw new ArgumentNullException("arguments");
-            }
-            _arguments.Clear();
-            foreach (var argument in arguments)
-            {
-                _arguments.Add(argument.Key, argument.Value);
-            }
-        }
-
-        /// <summary>
-        /// Determines whether or not the specified argument exist.
-        /// </summary>
-        /// <param name="name">The argument name.</param>
-        /// <returns>
-        ///   <c>true</c> if the argument exist; otherwise <c>false</c>.
-        /// </returns>
+        /// <inheritdoc cref="ICakeArguments.HasArgument(string)"/>
         public bool HasArgument(string name)
         {
             return _arguments.ContainsKey(name);
         }
 
-        /// <summary>
-        /// Gets an argument.
-        /// </summary>
-        /// <param name="name">The argument name.</param>
-        /// <returns>The argument value.</returns>
-        public string GetArgument(string name)
+        /// <inheritdoc cref="ICakeArguments.GetArguments(string)"/>
+        public ICollection<string> GetArguments(string name)
         {
-            return _arguments.ContainsKey(name)
-                ? _arguments[name] : null;
+            _arguments.TryGetValue(name, out List<string> value);
+            ICollection<string> collection = value;
+            return collection ?? Array.Empty<string>();
+        }
+
+        /// <inheritdoc cref="ICakeArguments.GetArguments"/>
+        public IDictionary<string, ICollection<string>> GetArguments()
+        {
+            return _arguments as IDictionary<string, ICollection<string>>;
         }
     }
 }
